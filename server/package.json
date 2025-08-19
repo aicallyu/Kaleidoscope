@@ -1,0 +1,24 @@
+{
+  "name": "devicepreview-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "DevicePreview backend API server",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development tsx index.ts",
+    "build": "esbuild index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "start": "NODE_ENV=production node dist/index.js",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.23",
+    "@types/node": "^20.19.11",
+    "cross-env": "^10.0.0",
+    "esbuild": "^0.19.12",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
+  }
+}
