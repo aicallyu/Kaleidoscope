@@ -738,17 +738,40 @@ useEffect(() => {
 
 ---
 
+## ✅ Week 3-4 Completed Features
+
+### MCP Server (`mcp-server/`)
+- **5 MCP tools**: `preview_responsive`, `capture_screenshots`, `kaleidoscope_status`, `kaleidoscope_start`, `kaleidoscope_stop`
+- **Process manager**: Auto-starts Kaleidoscope client/server when tools are invoked
+- **Stdio transport**: Standard MCP server compatible with Claude Code
+- **Package**: `kaleidoscope-mcp-server` with build/dev/start scripts
+
+### Screenshot System
+- **Backend service**: `server/services/screenshot.service.ts` using Playwright + Chromium
+- **API endpoint**: `POST /api/screenshots` + `GET /api/screenshots/devices`
+- **Frontend panel**: `mosaic-client/src/components/screenshot-panel.tsx` in sidebar
+- **Toolbar integration**: Screenshot button in preview-area now calls the API
+- **Features**: Multi-device capture, full-page option, PNG output
+
+### Bug Fixes
+- Fixed TypeScript `verbatimModuleSyntax` errors in server routes (type-only imports)
+- Fixed `localtunnel` missing type declarations
+- Fixed `err` implicit `any` type in tunnel service
+
+### Tests
+- 16 unit tests passing (devices + screenshot-panel)
+- Screenshot panel: device selection, API calls, error handling, full-page toggle
+
 ## 🏁 Session End State
 
 **Timestamp:** 2026-02-08
-**Branch:** claude/project-review-rmygA
-**Last Commit:** 5649af0 (Week 1-2 complete summary)
-**Working Directory:** Clean (all changes committed)
-**Test Status:** All manual tests passing ✅
+**Branch:** claude/continue-kaleidoscope-qeMSu
+**Working Directory:** Changes ready to commit
+**Test Status:** 16/16 tests passing ✅
 
 **Ready to Resume:** YES ✅
 
-**Next Action:** Ask user which Week 3-4 feature to tackle first (MCP, screenshots, or flow diagrams)
+**Next Action:** Week 5-7 - Flow diagrams with React Flow
 
 ---
 
