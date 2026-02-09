@@ -41,7 +41,7 @@ export function findChromium(): string {
         }
       }
     } catch {
-      // directory doesn't exist or isn't readable
+      // directory doesn't exist or isn't readable — skip silently
     }
   }
 
@@ -53,8 +53,14 @@ export function findChromium(): string {
   );
 
   for (const p of candidates) {
-    if (existsSync(p)) return p;
+    if (existsSync(p)) {
+      console.log(`[find-chromium] Using: ${p}`);
+      return p;
+    }
   }
+
+  console.error(`[find-chromium] Searched home dirs: ${[...homeDirs].join(', ')}`);
+  console.error(`[find-chromium] Searched cache dirs: ${browserPaths.join(', ')}`);
 
   throw new Error(
     'Chromium not found. Install Playwright browsers with: npx playwright install chromium'
